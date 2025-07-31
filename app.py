@@ -10,7 +10,7 @@ app.config['UPLOAD_FOLDER'] = os.path.join(os.getcwd(), 'tmp')
 # Ensure tmp folder exists
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
-genai.configure(api_key='AIzaSyCyL1gJP0jFpY6W41a3kohQNKwPQio5J4o')  
+genai.configure(api_key='Enter you API KEY')  
 
 @app.route('/', methods=['GET'])
 def home():
