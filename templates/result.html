@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake News Detector Result</title>
+  <link href="/static/styles.css" rel="stylesheet">
+  <style>
+    /* 3D Effect for Buttons and Containers */
+    .container, .output-text, .output-status {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .container:hover, .output-text:hover, .output-status:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Go Back Button Styling */
+    .go-back-btn {
+      background-color: #6200ea; /* Royal purple */
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .go-back-btn:hover {
+      background-color: #3700b3;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transform: scale(1.05);
+    }
+
+    /* Output Status Styling */
+    .output-status {
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    /* Green background for real news, red for fake news */
+    .output-status.green {
+      background-color: green;
+      color: white;
+    }
+
+    .output-status.red {
+      background-color: red;
+      color: white;
+    }
+
+    .output-status.white {
+      background-color: white;
+      color: black;
+    }
+
+    /* Text output styling */
+    .output-text {
+      font-size: 18px;
+      padding: 10px;
+      background-color: #f1f1f1;
+      border-radius: 5px;
+      margin-top: 10px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="content-container">
+    <h2><b>Fake News Detector</b></h2>
+
+    <!-- Displaying the result of the processed news -->
+    <div class="container output-container">
+      <p><b>News:</b></p>
+      <div class="output-text">
+        {{ news_text }}
+      </div>
+
+      <div class="output-status 
+        {% if status == 1 %} green 
+        {% elif status == 0 %} red 
+        {% else %} white {% endif %}">
+        {% if status == 1 %}
+          Real News!!!
+        {% elif status == 0 %}
+          Fake News!!!
+        {% else %}
+          Error processing the news
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Go Back Button -->
+    <div class="bottom-button" style="margin-top: 20px;">
+      <a href="/" class="go-back-btn">Go Back</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake News Detection</title>
+</head>
+<body>
+    <h2>Fake News Detection</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <label>Upload Image:</label><br>
+        <input type="file" name="image" required><br><br>
+
+        <label>Enter News Text:</label><br>
+        <textarea name="news" rows="5" cols="40" required></textarea><br><br>
+
+        <input type="submit" value="Detect">
+    </form>
+
+    {% if result %}
+        <h3>Result:</h3>
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
